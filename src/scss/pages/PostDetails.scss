@@ -1,0 +1,28 @@
+.post-details {
+  // .post-details__container
+  &__container {
+    padding-top: toRem(20);
+    padding-bottom: toRem(60);
+  }
+  // .post-details__title
+  &__title {
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+  // .post-details__body
+  &__body {
+    &::first-letter {
+      text-transform: uppercase;
+    }
+    &:not(:last-child) {
+      margin-bottom: toRem(32);
+    }
+  }
+  // .post-details__comments-title
+  &__comments-title {
+    &:not(:last-child) {
+      margin-bottom: toRem(24);
+    }
+  }
+}

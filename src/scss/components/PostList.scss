@@ -1,0 +1,42 @@
+.posts {
+  // .posts__items
+  &__items {
+    display: grid;
+    @include adaptiveValue('column-gap', 40, 20);
+    @include adaptiveValue('row-gap', 40, 20);
+    grid-template-columns: repeat(auto-fill, minmax(toRem(280), 1fr));
+  }
+  // .posts__item
+  &__item {
+    @include adaptiveValue('padding', 20, 12);
+    border-radius: toRem(8);
+    border: toRem(1) solid var(--blue-100);
+    display: flex;
+    flex-direction: column;
+  }
+  // .posts__list-title
+  &__list-title {
+    flex: 1 1 auto;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+    &:not(:last-child) {
+      margin-bottom: toRem(24);
+    }
+  }
+  // .posts__list-text
+  &__list-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+    &:not(:last-child) {
+      margin-bottom: toRem(32);
+    }
+  }
+  // .posts__button
+  &__button {
+  }
+}

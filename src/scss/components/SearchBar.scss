@@ -1,0 +1,15 @@
+.search {
+  width: 100%;
+  // .search__input
+  &__input {
+    max-width: toRem(450);
+    width: 100%;
+    border: toRem(2) solid transparent;
+    border-radius: toRem(8);
+    padding: toRem(4) toRem(8);
+    transition: border 0.3s;
+    &:focus{
+      border: toRem(2) solid var(--blue-500);
+    }
+  }
+}

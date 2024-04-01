@@ -1,0 +1,27 @@
+.photo-list {
+  display: grid;
+  @include adaptiveValue('column-gap', 40, 20);
+  @include adaptiveValue('row-gap', 40, 20);
+  grid-template-columns: repeat(auto-fill, minmax(toRem(260), 1fr));
+  // .photo-list__item
+  &__item {
+    display: grid;
+    grid-template-rows: 1fr auto ;
+    @include adaptiveValue('padding', 20, 12);
+    border-radius: toRem(8);
+    border: toRem(1) solid var(--blue-100);
+  }
+  // .photo-list__image
+  &__image {
+    max-width: 100%;
+  }
+  // .photo-list__title
+  &__title {
+    &::first-letter {
+      text-transform: uppercase;
+    }
+    &:not(:last-child) {
+      margin-bottom: toRem(24);
+    }
+  }
+}

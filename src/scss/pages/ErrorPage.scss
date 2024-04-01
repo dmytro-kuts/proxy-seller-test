@@ -1,0 +1,14 @@
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  // .error__container
+  &__container {
+    padding-top: toRem(20);
+    padding-bottom: toRem(20);
+    img{
+      max-width: 100%;
+    }
+  }
+}

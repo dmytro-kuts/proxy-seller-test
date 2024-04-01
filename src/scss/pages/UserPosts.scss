@@ -1,0 +1,10 @@
+.posts {
+  // .posts__container
+  &__container {
+    padding-top: toRem(20);
+    padding-bottom: toRem(60);
+  }
+  // .posts__title
+  &__title {
+  }
+}

@@ -1,0 +1,15 @@
+.filter-bar {
+  background-color: var(--bg-secondary);
+  border: toRem(2) solid transparent;
+  border-radius: toRem(8);
+  padding: toRem(4) toRem(8);
+  font-size: toRem(16);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  &:hover {
+    border-color: var(--blue-500); 
+  }
+  &:focus { 
+    border-color: var(--blue-500); 
+  }
+}
