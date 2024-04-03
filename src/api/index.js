@@ -26,16 +26,22 @@ export const getUserPosts = async (userId) => {
   }
 };
 
-export const getPostDetails = async (postId) => {
+export const getPostById = async (postId) => {
   try {
-    const [postResponse, commentsResponse] = await Promise.all([API.get(`/posts/${postId}`), API.get(`/comments?postId=${postId}`)]);
-
-    const post = postResponse.data;
-    const comments = commentsResponse.data;
-
-    return { post, comments };
+    const { data } = await API.get(`/posts/${postId}`);
+    return data;
   } catch (error) {
-    console.error(`Error fetching post details for post ${postId}:`, error);
+    console.error(`Error fetching post ${postId}:`, error);
+    throw error;
+  }
+};
+
+export const getCommentsByPost = async (postId) => {
+  try {
+    const { data } = await API.get(`/comments?postId=${postId}`);
+    return data;
+  } catch (error) {
+    console.error(`Error fetching comments for post ${postId}:`, error);
     throw error;
   }
 };
@@ -50,16 +56,23 @@ export const getUserAlbums = async (userId) => {
   }
 };
 
-export const getAlbumDetails = async (albumId) => {
+export const getAlbumById = async (albumId) => {
   try {
-    const [albumResponse, photosResponse] = await Promise.all([API.get(`/albums/${albumId}`), API.get(`/photos?albumId=${albumId}`)]);
-
-    const album = albumResponse.data;
-    const photos = photosResponse.data;
-
-    return { album, photos };
+    const { data } = await API.get(`/albums/${albumId}`);
+    return data;
   } catch (error) {
-    console.error(`Error fetching album details for album ${albumId}:`, error);
+    console.error(`Error fetching album ${albumId}:`, error);
     throw error;
   }
 };
+
+export const getPhotosByAlbum = async (albumId) => {
+  try {
+    const { data } = await API.get(`/photos?albumId=${albumId}`);
+    return data;
+  } catch (error) {
+    console.error(`Error fetching photos for album ${albumId}:`, error);
+    throw error;
+  }
+};
+

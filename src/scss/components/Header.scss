@@ -1,4 +1,12 @@
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--blue-glass) ;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  backdrop-filter: blur(8px);
   // .header__container
   &__container {
     padding-top: toRem(10);
@@ -10,6 +18,7 @@
   // .header__nav
   &__nav {
   }
+
 }
 .nav {
   // .nav__link

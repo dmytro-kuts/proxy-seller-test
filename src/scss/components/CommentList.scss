@@ -13,6 +13,7 @@
   }
   // .comment-list__name
   &__name {
+    min-height: toRem(60);
     &::first-letter {
       text-transform: uppercase;
     }
@@ -22,6 +23,12 @@
   }
   // .comment-list__email
   &__email {
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+    font-size: toRem(14);
     &:not(:last-child) {
       margin-bottom: toRem(32);
     }

@@ -1,31 +1,16 @@
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { getUsers } from '../api';
+import { useLoaderData } from 'react-router-dom';
 import UserList from '../components/UserList';
 import SearchBar from '../components/SearchBar';
 import FilterBar from '../components/FilterBar';
 import Preloader from '../components/Preloader';
 
 const Home = () => {
-  const [users, setUsers] = useState([]);
+  const users = useLoaderData();
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('asc');
   const [isLoading, setIsLoading] = useState(true);
-
-  const fetchUsers = useCallback(async () => {
-    try {
-      const fetchedUsers = await getUsers();
-      setUsers(fetchedUsers);
-    } catch (error) {
-      console.error('Error fetching users:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-  
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
   const handleSearch = useCallback((term) => {
     setSearchTerm(term);
@@ -41,10 +26,16 @@ const Home = () => {
       .sort((a, b) => (sortOrder === 'asc' ? a.username.localeCompare(b.username) : b.username.localeCompare(a.username)));
   }, [users, searchTerm, sortOrder]);
 
+  useEffect(() => {
+    if (users) {
+      setIsLoading(false);
+    }
+  }, [users]);
+
   return (
     <section className='users'>
       <Helmet>
-        <title>Home page</title>
+        <title>Proxy Seller test</title>
         <meta name='description' content='Home page users description' />
       </Helmet>
       <div className='users__container'>
